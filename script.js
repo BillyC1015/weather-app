@@ -1,7 +1,8 @@
+// this makes it so I don't have to type in the API key every time
 var apiKey ="df11be48b9405b1dd21aaf171c243671"
 
 
-
+// creates a click event for the search button
 $("#searchButton").on("click",function(){
     var searchValue=$("#searchInput").val()
     console.log (searchValue)
