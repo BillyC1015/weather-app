@@ -53,9 +53,10 @@ function forecast(lat,lon){
             var date=$("<h4>").text(moment.unix(data.list[i].dt).format("MM/DD/YYYY"))
             var temp=$("<p>").text("temp: "+data.list[i].main.temp)
             var windSpeed=$("<p>").text("Wind Speed: "+data.list[i].wind.speed)
+            var humidity=$("<p>").text("Humidity: "+data.list[i].main.humidity)
 
 
-          $("#Forecast").append(date,temp,windSpeed)  
+          $("#Forecast").append(date,temp,windSpeed,humidity)  
         }
     })
 }
