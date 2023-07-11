@@ -52,10 +52,10 @@ function forecast(lat,lon){
         for(var i=4;i<data.list.length;i=i+8){
             var date=$("<h4>").text(moment.unix(data.list[i].dt).format("MM/DD/YYYY"))
             var temp=$("<p>").text("temp: "+data.list[i].main.temp)
+            var windSpeed=$("<p>").text("Wind Speed: "+data.list[i].wind.speed)
 
 
-
-          $("#Forecast").append(date,temp)  
+          $("#Forecast").append(date,temp,windSpeed)  
         }
     })
 }
