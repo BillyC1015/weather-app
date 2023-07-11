@@ -25,7 +25,7 @@ function geoCode(searchValue){
 
 var currentDate= $("<h2>").text(dayjs().format("MM/DD/YYYY"))
 function currentWeather(lat,lon){
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`)
+    fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`)
     .then(response => response.json())
     .then(data =>{
         console.log (data)
@@ -43,7 +43,7 @@ var icon=$("<img>").attr("src",`https://openweathermap.org/img/wn/${data.weather
 
 
 function forecast(lat,lon){
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`)
+    fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`)
     .then(response => response.json())
     .then(data =>{
         console.log (data)
