@@ -29,6 +29,7 @@ function currentWeather(lat,lon){
     .then(response => response.json())
     .then(data =>{
         console.log (data)
+        $("#currentWeather").empty()
 var cityName=$("<h2>").text(data.name)
 var temp=$("<h3>").text("Temp: "+data.main.temp)
 var wind=$("<h3>").text("Wind Speed: "+data.wind.speed)
@@ -43,9 +44,18 @@ var icon=$("<img>").attr("src",`https://openweathermap.org/img/wn/${data.weather
 
 
 function forecast(lat,lon){
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`)
     .then(response => response.json())
     .then(data =>{
         console.log (data)
+        $("#Forecast").empty()
+        for(var i=4;i<data.list.length;i=i+8){
+            var date=$("<h4>").text(moment.unix(data.list[i].dt).format("MM/DD/YYYY"))
+            var temp=$("<p>").text("temp: "+data.list[i].main.temp)
+
+
+
+          $("#Forecast").append(date,temp)  
+        }
     })
 }
